@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { COURSE_NAME, COURSE_ICON, FEATURES, HUB_URL } from '@/config';
-import { useGamification } from '@/contexts/gamificationContext';
+import { useGamification } from '@/contexts/GamificationContext';
 import { XPDisplay, StreakBadge } from '@/components/gamification';
 
 interface HeaderProps {

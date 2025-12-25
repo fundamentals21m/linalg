@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getSectionById, getPartBySectionId, getAdjacentSections, getTotalSections, getSectionIndex } from '@/data/curriculum';
 import { FEATURES } from '@/config';
-import { useGamification } from '@/contexts/gamificationContext';
+import { useGamification } from '@/contexts/GamificationContext';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 import { SectionQuiz } from '@/components/quiz/SectionQuiz';
