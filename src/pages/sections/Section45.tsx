@@ -79,10 +79,10 @@ export default function Section45() {
         className="my-6"
         proof={
           <>
-            <p><strong>Setup:</strong> Let <Math>A(\\mathbf{x} + \\delta\\mathbf{x}) = \\mathbf{b} + \\delta\\mathbf{b}</Math>. Then <Math>A\\delta\\mathbf{x} = \\delta\\mathbf{b}</Math>, so <Math>\\delta\\mathbf{x} = A^{-1}\\delta\\mathbf{b}</Math>.</p>
+            <p><strong>Setup:</strong> Let <Math>{`A(\\mathbf{x} + \\delta\\mathbf{x}) = \\mathbf{b} + \\delta\\mathbf{b}`}</Math>. Then <Math>{`A\\delta\\mathbf{x} = \\delta\\mathbf{b}`}</Math>, so <Math>{`\\delta\\mathbf{x} = A^{-1}\\delta\\mathbf{b}`}</Math>.</p>
             <p className="mt-2"><strong>Bound on error:</strong> Taking norms:</p>
             <MathBlock>{`\\|\\delta\\mathbf{x}\\| = \\|A^{-1}\\delta\\mathbf{b}\\| \\leq \\|A^{-1}\\| \\|\\delta\\mathbf{b}\\|`}</MathBlock>
-            <p className="mt-2"><strong>Relative error:</strong> From <Math>\\mathbf{b} = A\\mathbf{x}</Math>: <Math>\\|\\mathbf{b}\\| \\leq \\|A\\|\\|\\mathbf{x}\\|</Math>, so <Math>1/\\|\\mathbf{x}\\| \\leq \\|A\\|/\\|\\mathbf{b}\\|</Math>.</p>
+            <p className="mt-2"><strong>Relative error:</strong> From <Math>{`\\mathbf{b} = A\\mathbf{x}`}</Math>: <Math>{`\\|\\mathbf{b}\\| \\leq \\|A\\|\\|\\mathbf{x}\\|`}</Math>, so <Math>{`1/\\|\\mathbf{x}\\| \\leq \\|A\\|/\\|\\mathbf{b}\\|`}</Math>.</p>
             <MathBlock>{`\\frac{\\|\\delta\\mathbf{x}\\|}{\\|\\mathbf{x}\\|} \\leq \\|A^{-1}\\| \\|\\delta\\mathbf{b}\\| \\cdot \\frac{\\|A\\|}{\\|\\mathbf{b}\\|} = \\kappa(A) \\frac{\\|\\delta\\mathbf{b}\\|}{\\|\\mathbf{b}\\|}`}</MathBlock>
           </>
         }

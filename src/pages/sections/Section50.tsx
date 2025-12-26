@@ -19,8 +19,8 @@ export default function Section50() {
         className="my-6"
         proof={
           <>
-            <p><strong>Goal:</strong> Find directions of maximum variance. The variance along direction <Math>\\mathbf{v}</Math> (unit vector) is <Math>\\mathbf{v}^T \\Sigma \\mathbf{v}</Math> where <Math>\\Sigma</Math> is the covariance matrix.</p>
-            <p className="mt-2"><strong>Solution:</strong> Maximize <Math>\\mathbf{v}^T \\Sigma \\mathbf{v}</Math> subject to <Math>\\|\\mathbf{v}\\| = 1</Math>. By Lagrange multipliers, <Math>\\Sigma \\mathbf{v} = \\lambda \\mathbf{v}</Math>.</p>
+            <p><strong>Goal:</strong> Find directions of maximum variance. The variance along direction <Math>{`\\mathbf{v}`}</Math> (unit vector) is <Math>{`\\mathbf{v}^T \\Sigma \\mathbf{v}`}</Math> where <Math>{`\\Sigma`}</Math> is the covariance matrix.</p>
+            <p className="mt-2"><strong>Solution:</strong> Maximize <Math>{`\\mathbf{v}^T \\Sigma \\mathbf{v}`}</Math> subject to <Math>{`\\|\\mathbf{v}\\| = 1`}</Math>. By Lagrange multipliers, <Math>{`\\Sigma \\mathbf{v} = \\lambda \\mathbf{v}`}</Math>.</p>
             <p className="mt-2">The principal components are eigenvectors of <Math>\\Sigma</Math>. The variance along each is its eigenvalue.</p>
             <p className="mt-2"><strong>SVD connection:</strong> For centered data <Math>X</Math>, <Math>\\Sigma \\propto X^TX</Math>. The SVD <Math>X = U\\Sigma V^T</Math> gives the same principal directions in <Math>V</Math>.</p>
           </>
@@ -58,10 +58,10 @@ export default function Section50() {
         className="my-6"
         proof={
           <>
-            <p><strong>Margin calculation:</strong> For a separating hyperplane <Math>\\mathbf{w}^T\\mathbf{x} + b = 0</Math>, the distance from point <Math>\\mathbf{x}_i</Math> to the hyperplane is <Math>|\\mathbf{w}^T\\mathbf{x}_i + b|/\\|\\mathbf{w}\\|</Math>.</p>
-            <p className="mt-2"><strong>Constraint normalization:</strong> Scale <Math>\\mathbf{w}, b</Math> so the closest points satisfy <Math>|\\mathbf{w}^T\\mathbf{x}_i + b| = 1</Math>. Then margin = <Math>1/\\|\\mathbf{w}\\|</Math>.</p>
-            <p className="mt-2"><strong>Maximize margin:</strong> Maximize <Math>1/\\|\\mathbf{w}\\|</Math> ⟺ minimize <Math>\\|\\mathbf{w}\\|^2</Math>.</p>
-            <p className="mt-2"><strong>Support vectors:</strong> The constraints <Math>y_i(\\mathbf{w}^T\\mathbf{x}_i + b) \\geq 1</Math> are active (equality) only for points on the margin boundaries. These are the support vectors; they determine the solution.</p>
+            <p><strong>Margin calculation:</strong> For a separating hyperplane <Math>{`\\mathbf{w}^T\\mathbf{x} + b = 0`}</Math>, the distance from point <Math>{`\\mathbf{x}_i`}</Math> to the hyperplane is <Math>{`|\\mathbf{w}^T\\mathbf{x}_i + b|/\\|\\mathbf{w}\\|`}</Math>.</p>
+            <p className="mt-2"><strong>Constraint normalization:</strong> Scale <Math>{`\\mathbf{w}, b`}</Math> so the closest points satisfy <Math>{`|\\mathbf{w}^T\\mathbf{x}_i + b| = 1`}</Math>. Then margin = <Math>{`1/\\|\\mathbf{w}\\|`}</Math>.</p>
+            <p className="mt-2"><strong>Maximize margin:</strong> Maximize <Math>{`1/\\|\\mathbf{w}\\|`}</Math> ⟺ minimize <Math>{`\\|\\mathbf{w}\\|^2`}</Math>.</p>
+            <p className="mt-2"><strong>Support vectors:</strong> The constraints <Math>{`y_i(\\mathbf{w}^T\\mathbf{x}_i + b) \\geq 1`}</Math> are active (equality) only for points on the margin boundaries. These are the support vectors; they determine the solution.</p>
           </>
         }
       >

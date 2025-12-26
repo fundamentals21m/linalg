@@ -5,7 +5,7 @@ import path from 'path'
 // =============================================================================
 // COURSE CONFIGURATION - Update these values for your course
 // =============================================================================
-const COURSE_ID = 'linalg'  // Short ID: 'ba', 'aa', 'crypto', etc.
+// Course ID: 'linalg' - Short ID: 'ba', 'aa', 'crypto', etc.
 // Use '/' for standalone Vercel deployment
 const BASE_PATH = '/'
 // =============================================================================
@@ -28,7 +28,27 @@ export default defineConfig({
     },
   },
   build: {
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500, // Lower threshold to catch issues
+    rollupOptions: {
+      output: {
+        // Manual chunks for better caching and smaller initial load
+        manualChunks: {
+          // Core React libraries - changes rarely
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          // Math rendering - large but essential
+          'vendor-math': ['katex'],
+          // Animation library
+          'vendor-animation': ['framer-motion'],
+          // Firebase - only loaded when auth/leaderboard features are used
+          'vendor-firebase': [
+            'firebase/app',
+            'firebase/auth',
+            'firebase/firestore',
+            'firebase/functions',
+          ],
+        },
+      },
+    },
   },
   define: {
     // Firebase environment variables

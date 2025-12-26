@@ -1,5 +1,5 @@
 import { LessonLayout } from '@/components/layout/LessonLayout';
-import { Definition, Theorem, Example } from '@/components/common/ContentBlocks';
+import { Theorem, Example } from '@/components/common/ContentBlocks';
 import { Math, MathBlock } from '@/components/common/MathBlock';
 
 export default function Section26() {

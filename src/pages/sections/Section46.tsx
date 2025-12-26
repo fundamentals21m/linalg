@@ -30,10 +30,10 @@ export default function Section46() {
         className="my-6"
         proof={
           <>
-            <p><strong>Error recurrence:</strong> Let <Math>\\mathbf{e}_k = \\mathbf{x}_k - \\mathbf{x}^*</Math> be the error. Since <Math>\\mathbf{x}^*</Math> is the fixed point:</p>
+            <p><strong>Error recurrence:</strong> Let <Math>{`\\mathbf{e}_k = \\mathbf{x}_k - \\mathbf{x}^*`}</Math> be the error. Since <Math>{`\\mathbf{x}^*`}</Math> is the fixed point:</p>
             <MathBlock>{`\\mathbf{e}_{k+1} = M^{-1}N\\mathbf{e}_k = (M^{-1}N)^k \\mathbf{e}_0`}</MathBlock>
-            <p className="mt-2"><strong>Power of matrix:</strong> For <Math>B = M^{-1}N</Math>, <Math>B^k \\to 0</Math> as <Math>k \\to \\infty</Math> if and only if <Math>\\rho(B) &lt; 1</Math>.</p>
-            <p className="mt-2"><strong>Why:</strong> If <Math>\\lambda</Math> is an eigenvalue of <Math>B</Math> with <Math>|\\lambda| \\geq 1</Math>, then <Math>B^k\\mathbf{v} = \\lambda^k \\mathbf{v}</Math> does not converge to zero.</p>
+            <p className="mt-2"><strong>Power of matrix:</strong> For <Math>{`B = M^{-1}N`}</Math>, <Math>{`B^k \\to 0`}</Math> as <Math>{`k \\to \\infty`}</Math> if and only if <Math>{`\\rho(B) < 1`}</Math>.</p>
+            <p className="mt-2"><strong>Why:</strong> If <Math>{`\\lambda`}</Math> is an eigenvalue of <Math>{`B`}</Math> with <Math>{`|\\lambda| \\geq 1`}</Math>, then <Math>{`B^k\\mathbf{v} = \\lambda^k \\mathbf{v}`}</Math> does not converge to zero.</p>
             <p className="mt-2">Conversely, if <Math>\\rho(B) &lt; 1</Math>, all eigenvalue components decay, and <Math>\\|B^k\\| \\to 0</Math>.</p>
           </>
         }

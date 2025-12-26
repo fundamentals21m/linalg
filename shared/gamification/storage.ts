@@ -1,5 +1,4 @@
 import type { GamificationState } from './types';
-import { validateLocalStorageData, sanitizeNumber } from '../validation/schemas';
 
 const STORAGE_KEY = 'magic-internet-math-progress';
 const CURRENT_VERSION = 2;
@@ -40,10 +39,9 @@ export function loadState(): GamificationState | null {
       // Migration: ensure all required fields exist
     }
 
-    // Validate data before returning
-    const validation = validateLocalStorageData(parsed);
-    if (!validation.valid) {
-      console.warn('Invalid gamification state in localStorage:', validation.error);
+    // Basic validation - check required fields exist
+    if (!parsed.user || !parsed.sections || !parsed.streak) {
+      console.warn('Invalid gamification state structure in localStorage');
       return null;
     }
 

@@ -93,10 +93,10 @@ export default function Section44() {
         proof={
           <>
             <p><strong>Definition:</strong> The parity check matrix <Math>H</Math> satisfies <Math>HG = 0</Math> where <Math>G</Math> is the generator matrix.</p>
-            <p className="mt-2"><strong>Valid codewords:</strong> If <Math>\\mathbf{c} = G\\mathbf{m}</Math> is a valid codeword, then <Math>H\\mathbf{c} = HG\\mathbf{m} = \\mathbf{0}</Math>.</p>
-            <p className="mt-2"><strong>Error detection:</strong> Received word <Math>\\mathbf{r} = \\mathbf{c} + \\mathbf{e}</Math> where <Math>\\mathbf{e}</Math> is the error pattern.</p>
+            <p className="mt-2"><strong>Valid codewords:</strong> If <Math>{`\\mathbf{c} = G\\mathbf{m}`}</Math> is a valid codeword, then <Math>{`H\\mathbf{c} = HG\\mathbf{m} = \\mathbf{0}`}</Math>.</p>
+            <p className="mt-2"><strong>Error detection:</strong> Received word <Math>{`\\mathbf{r} = \\mathbf{c} + \\mathbf{e}`}</Math> where <Math>{`\\mathbf{e}`}</Math> is the error pattern.</p>
             <MathBlock>{`H\\mathbf{r} = H(\\mathbf{c} + \\mathbf{e}) = H\\mathbf{c} + H\\mathbf{e} = \\mathbf{0} + H\\mathbf{e} = H\\mathbf{e}`}</MathBlock>
-            <p className="mt-2">The <strong>syndrome</strong> <Math>H\\mathbf{r}</Math> depends only on the error pattern, not the message. If <Math>\\mathbf{e}</Math> is a single bit error in position <Math>j</Math>, then <Math>H\\mathbf{e}</Math> equals column <Math>j</Math> of <Math>H</Math>, identifying the error location.</p>
+            <p className="mt-2">The <strong>syndrome</strong> <Math>{`H\\mathbf{r}`}</Math> depends only on the error pattern, not the message. If <Math>{`\\mathbf{e}`}</Math> is a single bit error in position <Math>{`j`}</Math>, then <Math>{`H\\mathbf{e}`}</Math> equals column <Math>{`j`}</Math> of <Math>{`H`}</Math>, identifying the error location.</p>
           </>
         }
       >

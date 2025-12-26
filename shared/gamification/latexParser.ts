@@ -26,7 +26,7 @@ export function parseLaTeX(text: string): ParsedSegment[] {
 
   // Check for display math first ($$...$$)
   const displayRegex = /\$\$([^$]*?)\$\$/g;
-  let match;
+  let match: RegExpExecArray | null;
   while ((match = displayRegex.exec(text)) !== null) {
     matches.push({
       type: 'display',
@@ -38,16 +38,17 @@ export function parseLaTeX(text: string): ParsedSegment[] {
 
   // Check for inline math ($...$), excluding already matched display math
   const inlineRegex = /\$([^$]+?)\$/g;
-  while ((match = inlineRegex.exec(text)) !== null) {
+  let inlineMatch: RegExpExecArray | null;
+  while ((inlineMatch = inlineRegex.exec(text)) !== null) {
     const isOverlappingDisplay = matches.some(m =>
-      match.index >= m.start && match.index < m.end
+      inlineMatch!.index >= m.start && inlineMatch!.index < m.end
     );
     if (!isOverlappingDisplay) {
       matches.push({
         type: 'inline',
-        latex: match[1],
-        start: match.index,
-        end: match.index + match[0].length,
+        latex: inlineMatch[1],
+        start: inlineMatch.index,
+        end: inlineMatch.index + inlineMatch[0].length,
       });
     }
   }

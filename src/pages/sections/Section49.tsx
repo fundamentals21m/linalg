@@ -78,8 +78,8 @@ export default function Section49() {
           <>
             <p><strong>Hat matrix:</strong> <Math>H = X(X^TX)^{-1}X^T</Math> satisfies <Math>H^2 = H</Math> (idempotent) and <Math>H^T = H</Math> (symmetric).</p>
             <p className="mt-2">These are the defining properties of an orthogonal projection matrix.</p>
-            <p className="mt-2"><strong>Projects onto C(X):</strong> For any <Math>\\mathbf{v} \\in C(X)</Math>, write <Math>\\mathbf{v} = X\\mathbf{c}</Math>. Then <Math>H\\mathbf{v} = X(X^TX)^{-1}X^TX\\mathbf{c} = X\\mathbf{c} = \\mathbf{v}</Math>.</p>
-            <p className="mt-2"><strong>Orthogonal residuals:</strong> <Math>\\mathbf{e} = (I-H)\\mathbf{y}</Math>. Since <Math>(I-H)H = 0</Math>, the residual is orthogonal to the fitted values and hence to <Math>C(X)</Math>.</p>
+            <p className="mt-2"><strong>Projects onto C(X):</strong> For any <Math>{`\\mathbf{v} \\in C(X)`}</Math>, write <Math>{`\\mathbf{v} = X\\mathbf{c}`}</Math>. Then <Math>{`H\\mathbf{v} = X(X^TX)^{-1}X^TX\\mathbf{c} = X\\mathbf{c} = \\mathbf{v}`}</Math>.</p>
+            <p className="mt-2"><strong>Orthogonal residuals:</strong> <Math>{`\\mathbf{e} = (I-H)\\mathbf{y}`}</Math>. Since <Math>{`(I-H)H = 0`}</Math>, the residual is orthogonal to the fitted values and hence to <Math>{`C(X)`}</Math>.</p>
           </>
         }
       >

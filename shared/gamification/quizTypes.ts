@@ -1,5 +1,6 @@
 import type { Difficulty } from './types';
-import { parseLaTeX, ParsedSegment, renderLaTeX } from './latexParser';
+import type { ParsedSegment } from './latexParser';
+import { renderLaTeX } from './latexParser';
 
 /**
  * Standardized quiz question type definition

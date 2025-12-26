@@ -82,10 +82,10 @@ export default function Section47() {
         className="my-6"
         proof={
           <>
-            <p><strong>Similarity:</strong> <Math>A_{k+1} = R_k Q_k = Q_k^{-1} Q_k R_k Q_k = Q_k^{-1} A_k Q_k</Math>.</p>
-            <p className="mt-2">Thus <Math>A_{k+1}</Math> is similar to <Math>A_k</Math>, so all <Math>A_k</Math> share the same eigenvalues.</p>
-            <p className="mt-2"><strong>Connection to power iteration:</strong> <Math>A^k = (Q_1 R_1)(Q_2 R_2)\\cdots = (Q_1 Q_2 \\cdots Q_k)(R_k \\cdots R_1)</Math>.</p>
-            <p className="mt-2">The <Math>Q</Math>-factors span the same subspaces as power iteration. This causes the subdiagonal entries to decay like <Math>|\\lambda_{i+1}/\\lambda_i|^k</Math>.</p>
+            <p><strong>Similarity:</strong> <Math>{`A_{k+1} = R_k Q_k = Q_k^{-1} Q_k R_k Q_k = Q_k^{-1} A_k Q_k`}</Math>.</p>
+            <p className="mt-2">Thus <Math>{`A_{k+1}`}</Math> is similar to <Math>{`A_k`}</Math>, so all <Math>{`A_k`}</Math> share the same eigenvalues.</p>
+            <p className="mt-2"><strong>Connection to power iteration:</strong> <Math>{`A^k = (Q_1 R_1)(Q_2 R_2)\\cdots = (Q_1 Q_2 \\cdots Q_k)(R_k \\cdots R_1)`}</Math>.</p>
+            <p className="mt-2">The <Math>{`Q`}</Math>-factors span the same subspaces as power iteration. This causes the subdiagonal entries to decay like <Math>{`|\\lambda_{i+1}/\\lambda_i|^k`}</Math>.</p>
             <p className="mt-2"><strong>Result:</strong> <Math>A_k</Math> converges to upper triangular (or block upper triangular if eigenvalues have equal modulus) with eigenvalues on the diagonal.</p>
           </>
         }
