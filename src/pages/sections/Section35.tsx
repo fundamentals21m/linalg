@@ -36,7 +36,7 @@ export default function Section35() {
             <p><strong>Addition:</strong> Combine real and imaginary parts separately: <Math>(a + bi) + (c + di) = (a+c) + (b+d)i</Math>.</p>
             <p className="mt-2"><strong>Multiplication:</strong> Use distributive law and <Math>i^2 = -1</Math>:</p>
             <MathBlock>{`(a + bi)(c + di) = ac + adi + bci + bdi^2 = (ac - bd) + (ad + bc)i`}</MathBlock>
-            <p className="mt-2"><strong>Modulus:</strong> <Math>|z|^2 = z \\bar{z} = (a+bi)(a-bi) = a^2 + b^2</Math>, so <Math>|z| = \\sqrt{a^2 + b^2}</Math>.</p>
+            <p className="mt-2"><strong>Modulus:</strong> <Math>{`|z|^2 = z \\bar{z} = (a+bi)(a-bi) = a^2 + b^2`}</Math>, so <Math>{`|z| = \\sqrt{a^2 + b^2}`}</Math>.</p>
           </>
         }
       >

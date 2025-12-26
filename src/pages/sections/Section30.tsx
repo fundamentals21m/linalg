@@ -136,7 +136,7 @@ export default function Section30() {
             <MathBlock>{`\\text{Total variance} = \\text{tr}(S) = \\lambda_1 + \\cdots + \\lambda_m`}</MathBlock>
             <p className="mt-2">When we project onto the first <Math>k</Math> PCs, the reconstruction is:</p>
             <MathBlock>{`\\hat{A} = Q_k Q_k^T A`}</MathBlock>
-            <p className="mt-2">By the Eckart-Young theorem, this minimizes <Math>\\|A - \\hat{A}\\|_F^2</Math>.</p>
+            <p className="mt-2">By the Eckart-Young theorem, this minimizes <Math>{`\\|A - \\hat{A}\\|_F^2`}</Math>.</p>
             <p className="mt-2">The variance captured by the first <Math>k</Math> components is <Math>{`\\lambda_1 + \\cdots + \\lambda_k`}</Math>. The reconstruction error in variance is <Math>{`\\lambda_{k+1} + \\cdots + \\lambda_m`}</Math>.</p>
             <p className="mt-2">Thus the fraction of variance retained is:</p>
             <MathBlock>{`\\frac{\\lambda_1 + \\cdots + \\lambda_k}{\\lambda_1 + \\cdots + \\lambda_m} = \\frac{\\sigma_1^2 + \\cdots + \\sigma_k^2}{\\sigma_1^2 + \\cdots + \\sigma_m^2}`}</MathBlock>

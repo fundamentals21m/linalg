@@ -109,7 +109,7 @@ export default function Section23() {
             <MathBlock>{`\\det(A - \\lambda I) = (-1)^n(\\lambda - \\lambda_1)(\\lambda - \\lambda_2) \\cdots (\\lambda - \\lambda_n)`}</MathBlock>
             <p className="mt-2"><strong>Product:</strong> Set <Math>\lambda = 0</Math>:</p>
             <MathBlock>{`\\det(A) = (-1)^n(-\\lambda_1)(-\\lambda_2)\\cdots(-\\lambda_n) = \\lambda_1\\lambda_2\\cdots\\lambda_n`}</MathBlock>
-            <p className="mt-2"><strong>Sum:</strong> The coefficient of <Math>\lambda^{n-1}</Math> on the left is <Math>{`(-1)^{n-1}(a_{11} + \\cdots + a_{nn})`}</Math>. On the right, it's <Math>{`(-1)^{n-1}(\\lambda_1 + \\cdots + \\lambda_n)`}</Math>. Comparing gives the trace formula.</p>
+            <p className="mt-2"><strong>Sum:</strong> The coefficient of <Math>{`\\lambda^{n-1}`}</Math> on the left is <Math>{`(-1)^{n-1}(a_{11} + \\cdots + a_{nn})`}</Math>. On the right, it's <Math>{`(-1)^{n-1}(\\lambda_1 + \\cdots + \\lambda_n)`}</Math>. Comparing gives the trace formula.</p>
           </>
         }
       >

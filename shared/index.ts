@@ -12,6 +12,10 @@ export * from './leaderboard';
 export * from './contexts';
 export { ErrorProvider, useErrorContext } from './contexts/ErrorContext';
 
+// Components
+export { ErrorBoundary } from './components/ErrorBoundary';
+export { ErrorDisplay } from './components/ErrorDisplay';
+
 // Gamification
 export * from './gamification';
 

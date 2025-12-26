@@ -117,7 +117,7 @@ export default function Section27() {
             <p>Start with <Math>LU</Math> factorization: <Math>S = LDU</Math> where <Math>L</Math> is lower triangular with 1's, <Math>D</Math> is diagonal (pivots), and <Math>U</Math> is upper triangular with 1's.</p>
             <p className="mt-2">For symmetric <Math>S</Math>: <Math>S = S^T</Math> gives <Math>LDU = U^TD^TL^T = U^TDL^T</Math>.</p>
             <p className="mt-2">By uniqueness: <Math>U = L^T</Math>, so <Math>S = LDL^T</Math>.</p>
-            <p className="mt-2">For positive definite <Math>S</Math>, all pivots <Math>d_i &gt; 0</Math>. Define <Math>L' = L\sqrt{D}</Math> where <Math>\sqrt{D} = \text{diag}(\sqrt{d_1}, \ldots, \sqrt{d_n})</Math>. Then:</p>
+            <p className="mt-2">For positive definite <Math>S</Math>, all pivots <Math>{`d_i > 0`}</Math>. Define <Math>{`L' = L\\sqrt{D}`}</Math> where <Math>{`\\sqrt{D} = \\text{diag}(\\sqrt{d_1}, \\ldots, \\sqrt{d_n})`}</Math>. Then:</p>
             <MathBlock>{`S = LDL^T = L\\sqrt{D}\\sqrt{D}L^T = (L\\sqrt{D})(L\\sqrt{D})^T = L'(L')^T`}</MathBlock>
           </>
         }

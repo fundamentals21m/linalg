@@ -76,9 +76,9 @@ export default function Section25() {
             <p>The general solution is <Math>{`\\mathbf{u}(t) = c_1 e^{\\lambda_1 t}\\mathbf{x}_1 + \\cdots + c_n e^{\\lambda_n t}\\mathbf{x}_n`}</Math>.</p>
             <p className="mt-2">For complex eigenvalue <Math>\lambda = a + bi</Math>:</p>
             <MathBlock>{`|e^{\\lambda t}| = |e^{(a+bi)t}| = e^{at}`}</MathBlock>
-            <p className="mt-2">• If <Math>a = \text{Re}(\lambda) &lt; 0</Math>, then <Math>e^{at} \to 0</Math> as <Math>t \to \infty</Math>.</p>
-            <p className="mt-2">• If any <Math>\text{Re}(\lambda) &gt; 0</Math>, that term grows exponentially, giving <Math>{`\\mathbf{u} \\to \\infty`}</Math>.</p>
-            <p className="mt-2">• If all <Math>\text{Re}(\lambda) \leq 0</Math>, solutions stay bounded (oscillate or decay).</p>
+            <p className="mt-2">• If <Math>{`a = \\text{Re}(\\lambda) < 0`}</Math>, then <Math>{`e^{at} \\to 0`}</Math> as <Math>{`t \\to \\infty`}</Math>.</p>
+            <p className="mt-2">• If any <Math>{`\\text{Re}(\\lambda) > 0`}</Math>, that term grows exponentially, giving <Math>{`\\mathbf{u} \\to \\infty`}</Math>.</p>
+            <p className="mt-2">• If all <Math>{`\\text{Re}(\\lambda) \\leq 0`}</Math>, solutions stay bounded (oscillate or decay).</p>
           </>
         }
       >

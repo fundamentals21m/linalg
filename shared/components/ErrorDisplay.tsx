@@ -1,4 +1,4 @@
-import { useErrorContext } from './ErrorContext';
+import { useErrorContext } from '../contexts/ErrorContext';
 
 interface ErrorDisplayProps {
   className?: string;

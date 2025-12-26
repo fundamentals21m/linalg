@@ -47,9 +47,9 @@ export default function Section38() {
         proof={
           <>
             <p>For edge <Math>e</Math> from node <Math>i</Math> to node <Math>j</Math>, row <Math>e</Math> of <Math>A</Math> has <Math>-1</Math> at column <Math>i</Math> and <Math>+1</Math> at column <Math>j</Math>.</p>
-            <p className="mt-2">Thus <Math>(A\\mathbf{x})_e = x_j - x_i</Math> = voltage difference across edge <Math>e</Math>.</p>
-            <p className="mt-2"><strong>Nullspace:</strong> <Math>A\\mathbf{x} = \\mathbf{0}</Math> means all voltage differences are zero: <Math>x_j = x_i</Math> for all edges.</p>
-            <p className="mt-2">In a connected graph, this implies all <Math>x_i</Math> are equal. Thus <Math>N(A) = \\text{span}(\\mathbf{1})</Math> where <Math>\\mathbf{1} = (1, 1, \\ldots, 1)^T</Math>.</p>
+            <p className="mt-2">Thus <Math>{`(A\\mathbf{x})_e = x_j - x_i`}</Math> = voltage difference across edge <Math>e</Math>.</p>
+            <p className="mt-2"><strong>Nullspace:</strong> <Math>{`A\\mathbf{x} = \\mathbf{0}`}</Math> means all voltage differences are zero: <Math>{`x_j = x_i`}</Math> for all edges.</p>
+            <p className="mt-2">In a connected graph, this implies all <Math>{`x_i`}</Math> are equal. Thus <Math>{`N(A) = \\text{span}(\\mathbf{1})`}</Math> where <Math>{`\\mathbf{1} = (1, 1, \\ldots, 1)^T`}</Math>.</p>
           </>
         }
       >
@@ -71,10 +71,10 @@ export default function Section38() {
         proof={
           <>
             <p>Column <Math>j</Math> of <Math>A^T</Math> = row <Math>j</Math> of <Math>A</Math> corresponds to node <Math>j</Math>.</p>
-            <p className="mt-2">The entry <Math>(A^T)_{je}</Math> is <Math>-1</Math> if edge <Math>e</Math> leaves node <Math>j</Math>, <Math>+1</Math> if it enters.</p>
-            <p className="mt-2">Thus <Math>(A^T\\mathbf{f})_j = \\sum_e A_{ej}f_e</Math> = (current in) − (current out) at node <Math>j</Math>.</p>
-            <p className="mt-2"><strong>Left nullspace:</strong> <Math>A^T\\mathbf{f} = \\mathbf{0}</Math> means current is conserved at every node.</p>
-            <p className="mt-2">Such <Math>\\mathbf{f}</Math> corresponds to current flowing around loops (cycles) in the graph. The dimension equals the number of independent loops = <Math>m - n + 1</Math> for a connected graph.</p>
+            <p className="mt-2">The entry <Math>{`(A^T)_{je}`}</Math> is <Math>-1</Math> if edge <Math>e</Math> leaves node <Math>j</Math>, <Math>+1</Math> if it enters.</p>
+            <p className="mt-2">Thus <Math>{`(A^T\\mathbf{f})_j = \\sum_e A_{ej}f_e`}</Math> = (current in) − (current out) at node <Math>j</Math>.</p>
+            <p className="mt-2"><strong>Left nullspace:</strong> <Math>{`A^T\\mathbf{f} = \\mathbf{0}`}</Math> means current is conserved at every node.</p>
+            <p className="mt-2">Such <Math>{`\\mathbf{f}`}</Math> corresponds to current flowing around loops (cycles) in the graph. The dimension equals the number of independent loops = <Math>m - n + 1</Math> for a connected graph.</p>
           </>
         }
       >

@@ -60,12 +60,12 @@ export default function Section34() {
         className="my-6"
         proof={
           <>
-            <p>Let <Math>{`[\\mathbf{x}]_{\\mathcal{B}}`}</Math> denote coordinates in basis <Math>\\mathcal{B}</Math>.</p>
-            <p className="mt-2">In basis <Math>\\mathcal{B}</Math>: <Math>{`[T(\\mathbf{x})]_{\\mathcal{B}} = A[\\mathbf{x}]_{\\mathcal{B}}`}</Math>.</p>
+            <p>Let <Math>{`[\\mathbf{x}]_{\\mathcal{B}}`}</Math> denote coordinates in basis <Math>{`\\mathcal{B}`}</Math>.</p>
+            <p className="mt-2">In basis <Math>{`\\mathcal{B}`}</Math>: <Math>{`[T(\\mathbf{x})]_{\\mathcal{B}} = A[\\mathbf{x}]_{\\mathcal{B}}`}</Math>.</p>
             <p className="mt-2">The change of basis matrix <Math>P</Math> satisfies: <Math>{`[\\mathbf{x}]_{\\mathcal{B}} = P[\\mathbf{x}]_{\\mathcal{C}}`}</Math>.</p>
-            <p className="mt-2">In basis <Math>\\mathcal{C}</Math>:</p>
+            <p className="mt-2">In basis <Math>{`\\mathcal{C}`}</Math>:</p>
             <MathBlock>{`[T(\\mathbf{x})]_{\\mathcal{C}} = P^{-1}[T(\\mathbf{x})]_{\\mathcal{B}} = P^{-1}A[\\mathbf{x}]_{\\mathcal{B}} = P^{-1}A(P[\\mathbf{x}]_{\\mathcal{C}}) = (P^{-1}AP)[\\mathbf{x}]_{\\mathcal{C}}`}</MathBlock>
-            <p className="mt-2">Therefore the matrix in basis <Math>\\mathcal{C}</Math> is <Math>B = P^{-1}AP</Math>.</p>
+            <p className="mt-2">Therefore the matrix in basis <Math>{`\\mathcal{C}`}</Math> is <Math>{`B = P^{-1}AP`}</Math>.</p>
           </>
         }
       >
@@ -136,8 +136,8 @@ export default function Section34() {
             <MathBlock>{`= \\det(P^{-1})\\det(A - \\lambda I)\\det(P) = \\det(A - \\lambda I)`}</MathBlock>
             <p className="mt-2">Same characteristic polynomial ⟹ same eigenvalues.</p>
             <p className="mt-2"><strong>Determinant:</strong> <Math>\\det B = \\det(P^{-1}AP) = \\det(P^{-1})\\det(A)\\det(P) = \\det A</Math>.</p>
-            <p className="mt-2"><strong>Trace:</strong> <Math>\\text{tr}(B) = \\text{tr}(P^{-1}AP) = \\text{tr}(APP^{-1}) = \\text{tr}(A)</Math> (using <Math>\\text{tr}(XY) = \\text{tr}(YX)</Math>).</p>
-            <p className="mt-2"><strong>Rank:</strong> <Math>B\\mathbf{x} = \\mathbf{0}</Math> iff <Math>P^{-1}AP\\mathbf{x} = \\mathbf{0}</Math> iff <Math>A(P\\mathbf{x}) = \\mathbf{0}</Math>. Since <Math>P</Math> is invertible, <Math>\\dim N(B) = \\dim N(A)</Math>, so <Math>\\text{rank}(B) = \\text{rank}(A)</Math>.</p>
+            <p className="mt-2"><strong>Trace:</strong> <Math>{`\\text{tr}(B) = \\text{tr}(P^{-1}AP) = \\text{tr}(APP^{-1}) = \\text{tr}(A)`}</Math> (using <Math>{`\\text{tr}(XY) = \\text{tr}(YX)`}</Math>).</p>
+            <p className="mt-2"><strong>Rank:</strong> <Math>{`B\\mathbf{x} = \\mathbf{0}`}</Math> iff <Math>{`P^{-1}AP\\mathbf{x} = \\mathbf{0}`}</Math> iff <Math>{`A(P\\mathbf{x}) = \\mathbf{0}`}</Math>. Since <Math>P</Math> is invertible, <Math>{`\\dim N(B) = \\dim N(A)`}</Math>, so <Math>{`\\text{rank}(B) = \\text{rank}(A)`}</Math>.</p>
           </>
         }
       >

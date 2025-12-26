@@ -154,11 +154,11 @@ export default function Section32() {
         proof={
           <>
             <p>Let <Math>{`\\{\\mathbf{u}_1, \\ldots, \\mathbf{u}_k\\}`}</Math> be a basis for <Math>\\ker T</Math>. Extend to a basis <Math>{`\\{\\mathbf{u}_1, \\ldots, \\mathbf{u}_k, \\mathbf{v}_1, \\ldots, \\mathbf{v}_m\\}`}</Math> for <Math>V</Math>.</p>
-            <p className="mt-2"><strong>Claim:</strong> <Math>{`\\{T(\\mathbf{v}_1), \\ldots, T(\\mathbf{v}_m)\\}`}</Math> is a basis for <Math>\\text{range } T</Math>.</p>
+            <p className="mt-2"><strong>Claim:</strong> <Math>{`\\{T(\\mathbf{v}_1), \\ldots, T(\\mathbf{v}_m)\\}`}</Math> is a basis for <Math>{`\\text{range } T`}</Math>.</p>
             <p className="mt-2"><em>Spanning:</em> Any <Math>{`\\mathbf{w} \\in \\text{range } T`}</Math> is <Math>{`T(\\mathbf{x})`}</Math> for some <Math>{`\\mathbf{x} = \\sum a_i \\mathbf{u}_i + \\sum b_j \\mathbf{v}_j`}</Math>. Then:</p>
             <MathBlock>{`\\mathbf{w} = T(\\mathbf{x}) = \\sum a_i T(\\mathbf{u}_i) + \\sum b_j T(\\mathbf{v}_j) = \\sum b_j T(\\mathbf{v}_j)`}</MathBlock>
             <p className="mt-2"><em>Independence:</em> If <Math>{`\\sum c_j T(\\mathbf{v}_j) = \\mathbf{0}`}</Math>, then <Math>{`T(\\sum c_j \\mathbf{v}_j) = \\mathbf{0}`}</Math>, so <Math>{`\\sum c_j \\mathbf{v}_j \\in \\ker T`}</Math>. But this means <Math>{`\\sum c_j \\mathbf{v}_j = \\sum a_i \\mathbf{u}_i`}</Math>, contradicting basis independence unless all <Math>c_j = 0</Math>.</p>
-            <p className="mt-2">Thus <Math>\\dim V = k + m = \\dim(\\ker T) + \\dim(\\text{range } T)</Math>.</p>
+            <p className="mt-2">Thus <Math>{`\\dim V = k + m = \\dim(\\ker T) + \\dim(\\text{range } T)`}</Math>.</p>
           </>
         }
       >

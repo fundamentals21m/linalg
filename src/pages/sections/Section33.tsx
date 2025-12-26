@@ -21,7 +21,7 @@ export default function Section33() {
             <p>Any <Math>{`\\mathbf{x} \\in V`}</Math> can be written as <Math>{`\\mathbf{x} = x_1\\mathbf{v}_1 + \\cdots + x_n\\mathbf{v}_n`}</Math>.</p>
             <p className="mt-2">By linearity:</p>
             <MathBlock>{`T(\\mathbf{x}) = x_1 T(\\mathbf{v}_1) + \\cdots + x_n T(\\mathbf{v}_n)`}</MathBlock>
-            <p className="mt-2">Each <Math>{`T(\\mathbf{v}_j)`}</Math> is in <Math>W</Math>, so it has coordinates in the <Math>\\mathbf{w}</Math>-basis:</p>
+            <p className="mt-2">Each <Math>{`T(\\mathbf{v}_j)`}</Math> is in <Math>W</Math>, so it has coordinates in the <Math>{`\\mathbf{w}`}</Math>-basis:</p>
             <MathBlock>{`T(\\mathbf{v}_j) = \\sum_{i=1}^m a_{ij} \\mathbf{w}_i`}</MathBlock>
             <p className="mt-2">The output <Math>{`T(\\mathbf{x})`}</Math> in coordinates is:</p>
             <MathBlock>{`[T(\\mathbf{x})]_W = \\begin{bmatrix} a_{11} & \\cdots & a_{1n} \\\\ \\vdots & \\ddots & \\vdots \\\\ a_{m1} & \\cdots & a_{mn} \\end{bmatrix} \\begin{bmatrix} x_1 \\\\ \\vdots \\\\ x_n \\end{bmatrix} = A[\\mathbf{x}]_V`}</MathBlock>
@@ -104,7 +104,7 @@ export default function Section33() {
             <p className="mt-2">For any <Math>{`\\mathbf{x} \\in U`}</Math>:</p>
             <MathBlock>{`[T_1(\\mathbf{x})]_V = A[\\mathbf{x}]_U`}</MathBlock>
             <MathBlock>{`[T_2(T_1(\\mathbf{x}))]_W = B[T_1(\\mathbf{x})]_V = B(A[\\mathbf{x}]_U) = (BA)[\\mathbf{x}]_U`}</MathBlock>
-            <p className="mt-2">Therefore <Math>[(T_2 \\circ T_1)(\\mathbf{x})]_W = (BA)[\\mathbf{x}]_U</Math>, so the matrix of <Math>T_2 \\circ T_1</Math> is <Math>BA</Math>.</p>
+            <p className="mt-2">Therefore <Math>{`[(T_2 \\circ T_1)(\\mathbf{x})]_W = (BA)[\\mathbf{x}]_U`}</Math>, so the matrix of <Math>{`T_2 \\circ T_1`}</Math> is <Math>BA</Math>.</p>
             <p className="mt-2">Note: Order matters! We apply <Math>T_1</Math> first (matrix <Math>A</Math>), then <Math>T_2</Math> (matrix <Math>B</Math>), giving product <Math>BA</Math>.</p>
           </>
         }
@@ -133,7 +133,7 @@ export default function Section33() {
             <p className="mt-2">By the composition theorem: <Math>T^{-1} \\circ T = I</Math> has matrix <Math>BA = I</Math>, and <Math>T \\circ T^{-1} = I</Math> has matrix <Math>AB = I</Math>.</p>
             <p className="mt-2">Therefore <Math>A</Math> is invertible with <Math>A^{-1} = B</Math>.</p>
             <p className="mt-2"><strong>(⟸)</strong> Suppose <Math>A</Math> is invertible.</p>
-            <p className="mt-2">Define <Math>S: W \\to V</Math> by <Math>[S(\\mathbf{w})]_V = A^{-1}[\\mathbf{w}]_W</Math>. This is linear (matrix multiplication).</p>
+            <p className="mt-2">Define <Math>{`S: W \\to V`}</Math> by <Math>{`[S(\\mathbf{w})]_V = A^{-1}[\\mathbf{w}]_W`}</Math>. This is linear (matrix multiplication).</p>
             <p className="mt-2">Then <Math>S \\circ T</Math> has matrix <Math>A^{-1}A = I</Math>, so <Math>S \\circ T = I_V</Math>. Similarly <Math>T \\circ S = I_W</Math>. Thus <Math>S = T^{-1}</Math>.</p>
           </>
         }

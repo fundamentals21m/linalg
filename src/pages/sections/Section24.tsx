@@ -18,7 +18,7 @@ export default function Section24() {
         className="my-6"
         proof={
           <>
-            <p>Let <Math>X = [\mathbf{x}_1 \cdots \mathbf{x}_n]</Math> where <Math>{`A\\mathbf{x}_i = \\lambda_i\\mathbf{x}_i`}</Math>. Then:</p>
+            <p>Let <Math>{`X = [\\mathbf{x}_1 \\cdots \\mathbf{x}_n]`}</Math> where <Math>{`A\\mathbf{x}_i = \\lambda_i\\mathbf{x}_i`}</Math>. Then:</p>
             <MathBlock>{`AX = A[\\mathbf{x}_1 \\cdots \\mathbf{x}_n] = [\\lambda_1\\mathbf{x}_1 \\cdots \\lambda_n\\mathbf{x}_n]`}</MathBlock>
             <p className="mt-2">The right side can be written as <Math>X\Lambda</Math>:</p>
             <MathBlock>{`AX = X\\Lambda`}</MathBlock>

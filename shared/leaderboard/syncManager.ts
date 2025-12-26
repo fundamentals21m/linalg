@@ -31,14 +31,14 @@ function extractScoresFromStorage(): ScoreUpdate[] | null {
     const state = JSON.parse(stored);
     if (!state?.user || !state?.sections) return null;
 
-    const scores: Record<CourseId, number> = { ba: 0, crypto: 0, aa: 0, linalg: 0 };
+    const scores: Record<CourseId, number> = { ba: 0, crypto: 0, aa: 0, linalg: 0, advlinalg: 0 };
 
     // Calculate XP per course from sections
     for (const [sectionId, sectionData] of Object.entries(state.sections)) {
       const [coursePrefix] = sectionId.split(':');
       const course = coursePrefix as CourseId;
 
-      if (!['ba', 'crypto', 'aa', 'linalg'].includes(course)) continue;
+      if (!['ba', 'crypto', 'aa', 'linalg', 'advlinalg'].includes(course)) continue;
 
       const section = sectionData as {
         visitedAt?: string;
@@ -77,6 +77,7 @@ function extractScoresFromStorage(): ScoreUpdate[] | null {
       { courseId: 'crypto', xp: scores.crypto },
       { courseId: 'aa', xp: scores.aa },
       { courseId: 'linalg', xp: scores.linalg },
+      { courseId: 'advlinalg', xp: scores.advlinalg },
     ];
   } catch (error) {
     logger.error('Error extracting scores from storage:', error);
@@ -220,7 +221,7 @@ export class SyncManager {
         acc[s.courseId] = s.xp;
         return acc;
       },
-      { ba: 0, crypto: 0, aa: 0, linalg: 0 } as Record<CourseId, number>
+      { ba: 0, crypto: 0, aa: 0, linalg: 0, advlinalg: 0 } as Record<CourseId, number>
     );
   }
 }

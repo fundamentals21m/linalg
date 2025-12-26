@@ -44,9 +44,9 @@ export default function Section40() {
         className="my-6"
         proof={
           <>
-            <p><strong>Eigenvalue 1 exists:</strong> Since columns sum to 1, <Math>\\mathbf{e}^T P = \\mathbf{e}^T</Math> where <Math>\\mathbf{e} = (1, 1, \\ldots, 1)</Math>.</p>
-            <p className="mt-2">This means <Math>P^T \\mathbf{e} = \\mathbf{e}</Math>, so <Math>\\lambda = 1</Math> is an eigenvalue of <Math>P^T</Math>, hence also of <Math>P</Math>.</p>
-            <p className="mt-2"><strong>All <Math>|\\lambda| \\leq 1</Math>:</strong> Suppose <Math>P\\mathbf{x} = \\lambda \\mathbf{x}</Math>. Let <Math>|x_k| = \\max_i |x_i|</Math>. Then:</p>
+            <p><strong>Eigenvalue 1 exists:</strong> Since columns sum to 1, <Math>{`\\mathbf{e}^T P = \\mathbf{e}^T`}</Math> where <Math>{`\\mathbf{e} = (1, 1, \\ldots, 1)`}</Math>.</p>
+            <p className="mt-2">This means <Math>{`P^T \\mathbf{e} = \\mathbf{e}`}</Math>, so <Math>{`\\lambda = 1`}</Math> is an eigenvalue of <Math>{`P^T`}</Math>, hence also of <Math>P</Math>.</p>
+            <p className="mt-2"><strong>All <Math>{`|\\lambda| \\leq 1`}</Math>:</strong> Suppose <Math>{`P\\mathbf{x} = \\lambda \\mathbf{x}`}</Math>. Let <Math>{`|x_k| = \\max_i |x_i|`}</Math>. Then:</p>
             <MathBlock>{`|\\lambda x_k| = |\\sum_j p_{kj} x_j| \\leq \\sum_j p_{kj} |x_j| \\leq |x_k| \\sum_j p_{kj} = |x_k|`}</MathBlock>
             <p className="mt-2">Thus <Math>|\\lambda| \\leq 1</Math>.</p>
           </>
@@ -84,7 +84,7 @@ export default function Section40() {
             <p className="mt-2"><strong>Diagonalization:</strong> If <Math>P = X \\Lambda X^{-1}</Math>, then <Math>P^k = X \\Lambda^k X^{-1}</Math>.</p>
             <p className="mt-2">As <Math>k \\to \\infty</Math>, <Math>\\lambda_i^k \\to 0</Math> for all <Math>|\\lambda_i| &lt; 1</Math>. Only <Math>\\lambda_1 = 1</Math> survives:</p>
             <MathBlock>{`P^k \\to \\mathbf{x}_1 \\mathbf{y}_1^T`}</MathBlock>
-            <p className="mt-2">where <Math>\\mathbf{x}_1</Math> is the steady-state right eigenvector and <Math>\\mathbf{y}_1</Math> is the left eigenvector. Since columns of <Math>P</Math> sum to 1, <Math>\\mathbf{y}_1 = \\mathbf{e}</Math>.</p>
+            <p className="mt-2">where <Math>{`\\mathbf{x}_1`}</Math> is the steady-state right eigenvector and <Math>{`\\mathbf{y}_1`}</Math> is the left eigenvector. Since columns of <Math>P</Math> sum to 1, <Math>{`\\mathbf{y}_1 = \\mathbf{e}`}</Math>.</p>
           </>
         }
       >

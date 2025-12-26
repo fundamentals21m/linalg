@@ -33,8 +33,8 @@ export default function Section20() {
         proof={
           <>
             <p><strong>Property 4:</strong> Exchange the two equal rows. By property 2, the sign changes. But the matrix is unchanged! So <Math>\det A = -\det A</Math>, giving <Math>\det A = 0</Math>.</p>
-            <p className="mt-2"><strong>Property 5:</strong> By property 3, <Math>\det[\text{{row}}_i - c \cdot \text{{row}}_j] = \det[\text{{row}}_i] - c \cdot \det[\text{{row}}_j]</Math>. The second determinant has two equal rows (row <Math>j</Math> appears twice), so by property 4 it's zero.</p>
-            <p className="mt-2"><strong>Property 6:</strong> By property 3 with scalar 0: <Math>\det[0 \cdot \text{{row}}_i] = 0 \cdot \det[\text{{row}}_i] = 0</Math>.</p>
+            <p className="mt-2"><strong>Property 5:</strong> By property 3, <Math>{`\\det[\\text{row}_i - c \\cdot \\text{row}_j] = \\det[\\text{row}_i] - c \\cdot \\det[\\text{row}_j]`}</Math>. The second determinant has two equal rows (row <Math>j</Math> appears twice), so by property 4 it's zero.</p>
+            <p className="mt-2"><strong>Property 6:</strong> By property 3 with scalar 0: <Math>{`\\det[0 \\cdot \\text{row}_i] = 0 \\cdot \\det[\\text{row}_i] = 0`}</Math>.</p>
             <p className="mt-2"><strong>Property 7:</strong> Elimination (which doesn't change det by property 5) produces <Math>I</Math> for a triangular matrix with all 1's on diagonal. The product of pivots formula follows.</p>
             <p className="mt-2"><strong>Property 8:</strong> A singular matrix has a zero row in <Math>U</Math>, giving <Math>\det A = 0</Math>.</p>
           </>
