@@ -1,121 +1,79 @@
+import { lazy, Suspense } from 'react';
 import { HashRouter, Routes, Route, useParams } from 'react-router-dom';
 import { GamificationProvider } from '@/contexts/GamificationContext';
-import { NostrAuthProvider } from '@shared/contexts/NostrAuthContext';
+import { NostrAuthProvider, ErrorBoundary, ErrorProvider, ErrorDisplay, LoadingSpinner } from '@magic-internet-math/shared';
 import { AchievementToastContainer } from '@/components/gamification';
 import { FEATURES } from '@/config';
 
-// Pages
+// Eagerly load Home since it's the landing page
 import Home from '@/pages/Home';
-import Leaderboard from '@/pages/Leaderboard';
-import Theorems from '@/pages/Theorems';
-import InteractiveModules from '@/pages/InteractiveModules';
-import ChapterQuiz from '@/pages/ChapterQuiz';
 
-// Section pages - import all sections here
-import Section01 from '@/pages/sections/Section01';
-import Section02 from '@/pages/sections/Section02';
-import Section03 from '@/pages/sections/Section03';
-import Section04 from '@/pages/sections/Section04';
-import Section05 from '@/pages/sections/Section05';
-import Section06 from '@/pages/sections/Section06';
-import Section07 from '@/pages/sections/Section07';
-import Section08 from '@/pages/sections/Section08';
-import Section09 from '@/pages/sections/Section09';
-import Section10 from '@/pages/sections/Section10';
-import Section11 from '@/pages/sections/Section11';
-import Section12 from '@/pages/sections/Section12';
-import Section13 from '@/pages/sections/Section13';
-import Section14 from '@/pages/sections/Section14';
-import Section15 from '@/pages/sections/Section15';
-import Section16 from '@/pages/sections/Section16';
-import Section17 from '@/pages/sections/Section17';
-import Section18 from '@/pages/sections/Section18';
-import Section19 from '@/pages/sections/Section19';
-import Section20 from '@/pages/sections/Section20';
-import Section21 from '@/pages/sections/Section21';
-import Section22 from '@/pages/sections/Section22';
-import Section23 from '@/pages/sections/Section23';
-import Section24 from '@/pages/sections/Section24';
-import Section25 from '@/pages/sections/Section25';
-import Section26 from '@/pages/sections/Section26';
-import Section27 from '@/pages/sections/Section27';
-import Section28 from '@/pages/sections/Section28';
-import Section29 from '@/pages/sections/Section29';
-import Section30 from '@/pages/sections/Section30';
-import Section31 from '@/pages/sections/Section31';
-import Section32 from '@/pages/sections/Section32';
-import Section33 from '@/pages/sections/Section33';
-import Section34 from '@/pages/sections/Section34';
-import Section35 from '@/pages/sections/Section35';
-import Section36 from '@/pages/sections/Section36';
-import Section37 from '@/pages/sections/Section37';
-import Section38 from '@/pages/sections/Section38';
-import Section39 from '@/pages/sections/Section39';
-import Section40 from '@/pages/sections/Section40';
-import Section41 from '@/pages/sections/Section41';
-import Section42 from '@/pages/sections/Section42';
-import Section43 from '@/pages/sections/Section43';
-import Section44 from '@/pages/sections/Section44';
-import Section45 from '@/pages/sections/Section45';
-import Section46 from '@/pages/sections/Section46';
-import Section47 from '@/pages/sections/Section47';
-import Section48 from '@/pages/sections/Section48';
-import Section49 from '@/pages/sections/Section49';
-import Section50 from '@/pages/sections/Section50';
+// Lazy load other pages - they're only needed when navigating to them
+const Leaderboard = lazy(() => import('@/pages/Leaderboard'));
+const Theorems = lazy(() => import('@/pages/Theorems'));
+const InteractiveModules = lazy(() => import('@/pages/InteractiveModules'));
+const ChapterQuiz = lazy(() => import('@/pages/ChapterQuiz'));
 
-// Dynamic section loader for sections that exist
-const sectionComponents: Record<number, React.ComponentType> = {
-  1: Section01,
-  2: Section02,
-  3: Section03,
-  4: Section04,
-  5: Section05,
-  6: Section06,
-  7: Section07,
-  8: Section08,
-  9: Section09,
-  10: Section10,
-  11: Section11,
-  12: Section12,
-  13: Section13,
-  14: Section14,
-  15: Section15,
-  16: Section16,
-  17: Section17,
-  18: Section18,
-  19: Section19,
-  20: Section20,
-  21: Section21,
-  22: Section22,
-  23: Section23,
-  24: Section24,
-  25: Section25,
-  26: Section26,
-  27: Section27,
-  28: Section28,
-  29: Section29,
-  30: Section30,
-  31: Section31,
-  32: Section32,
-  33: Section33,
-  34: Section34,
-  35: Section35,
-  36: Section36,
-  37: Section37,
-  38: Section38,
-  39: Section39,
-  40: Section40,
-  41: Section41,
-  42: Section42,
-  43: Section43,
-  44: Section44,
-  45: Section45,
-  46: Section46,
-  47: Section47,
-  48: Section48,
-  49: Section49,
-  50: Section50,
+// Lazy load all section pages - this is the biggest win for bundle size
+// Each section is only loaded when the user navigates to it
+const sectionLoaders: Record<number, () => Promise<{ default: React.ComponentType }>> = {
+  1: () => import('@/pages/sections/Section01'),
+  2: () => import('@/pages/sections/Section02'),
+  3: () => import('@/pages/sections/Section03'),
+  4: () => import('@/pages/sections/Section04'),
+  5: () => import('@/pages/sections/Section05'),
+  6: () => import('@/pages/sections/Section06'),
+  7: () => import('@/pages/sections/Section07'),
+  8: () => import('@/pages/sections/Section08'),
+  9: () => import('@/pages/sections/Section09'),
+  10: () => import('@/pages/sections/Section10'),
+  11: () => import('@/pages/sections/Section11'),
+  12: () => import('@/pages/sections/Section12'),
+  13: () => import('@/pages/sections/Section13'),
+  14: () => import('@/pages/sections/Section14'),
+  15: () => import('@/pages/sections/Section15'),
+  16: () => import('@/pages/sections/Section16'),
+  17: () => import('@/pages/sections/Section17'),
+  18: () => import('@/pages/sections/Section18'),
+  19: () => import('@/pages/sections/Section19'),
+  20: () => import('@/pages/sections/Section20'),
+  21: () => import('@/pages/sections/Section21'),
+  22: () => import('@/pages/sections/Section22'),
+  23: () => import('@/pages/sections/Section23'),
+  24: () => import('@/pages/sections/Section24'),
+  25: () => import('@/pages/sections/Section25'),
+  26: () => import('@/pages/sections/Section26'),
+  27: () => import('@/pages/sections/Section27'),
+  28: () => import('@/pages/sections/Section28'),
+  29: () => import('@/pages/sections/Section29'),
+  30: () => import('@/pages/sections/Section30'),
+  31: () => import('@/pages/sections/Section31'),
+  32: () => import('@/pages/sections/Section32'),
+  33: () => import('@/pages/sections/Section33'),
+  34: () => import('@/pages/sections/Section34'),
+  35: () => import('@/pages/sections/Section35'),
+  36: () => import('@/pages/sections/Section36'),
+  37: () => import('@/pages/sections/Section37'),
+  38: () => import('@/pages/sections/Section38'),
+  39: () => import('@/pages/sections/Section39'),
+  40: () => import('@/pages/sections/Section40'),
+  41: () => import('@/pages/sections/Section41'),
+  42: () => import('@/pages/sections/Section42'),
+  43: () => import('@/pages/sections/Section43'),
+  44: () => import('@/pages/sections/Section44'),
+  45: () => import('@/pages/sections/Section45'),
+  46: () => import('@/pages/sections/Section46'),
+  47: () => import('@/pages/sections/Section47'),
+  48: () => import('@/pages/sections/Section48'),
+  49: () => import('@/pages/sections/Section49'),
+  50: () => import('@/pages/sections/Section50'),
 };
+
+// Create lazy components from loaders
+const sectionComponents: Record<number, React.LazyExoticComponent<React.ComponentType>> = {};
+for (const [id, loader] of Object.entries(sectionLoaders)) {
+  sectionComponents[Number(id)] = lazy(loader);
+}
 
 function SectionRouter() {
   const { id } = useParams<{ id: string }>();
@@ -124,7 +82,11 @@ function SectionRouter() {
   const SectionComponent = sectionComponents[sectionId];
 
   if (SectionComponent) {
-    return <SectionComponent />;
+    return (
+      <Suspense fallback={<LoadingSpinner message="Loading section..." />}>
+        <SectionComponent />
+      </Suspense>
+    );
   }
 
   return (
@@ -144,22 +106,50 @@ function AppContent() {
         {/* Core routes */}
         <Route path="/" element={<Home />} />
 
-        {/* Feature-gated routes */}
+        {/* Feature-gated routes - lazy loaded */}
         {FEATURES.leaderboard && (
-          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route
+            path="/leaderboard"
+            element={
+              <Suspense fallback={<LoadingSpinner message="Loading leaderboard..." />}>
+                <Leaderboard />
+              </Suspense>
+            }
+          />
         )}
         {FEATURES.theoremIndex && (
-          <Route path="/theorems" element={<Theorems />} />
+          <Route
+            path="/theorems"
+            element={
+              <Suspense fallback={<LoadingSpinner message="Loading theorems..." />}>
+                <Theorems />
+              </Suspense>
+            }
+          />
         )}
         {FEATURES.interactiveModules && (
-          <Route path="/interactive" element={<InteractiveModules />} />
+          <Route
+            path="/interactive"
+            element={
+              <Suspense fallback={<LoadingSpinner message="Loading modules..." />}>
+                <InteractiveModules />
+              </Suspense>
+            }
+          />
         )}
 
-        {/* Dynamic section routes */}
+        {/* Dynamic section routes - lazy loaded via SectionRouter */}
         <Route path="/section/:id" element={<SectionRouter />} />
 
-        {/* Chapter quiz routes */}
-        <Route path="/chapter/:id/quiz" element={<ChapterQuiz />} />
+        {/* Chapter quiz routes - lazy loaded */}
+        <Route
+          path="/chapter/:id/quiz"
+          element={
+            <Suspense fallback={<LoadingSpinner message="Loading quiz..." />}>
+              <ChapterQuiz />
+            </Suspense>
+          }
+        />
 
         {/* Fallback */}
         <Route path="*" element={<Home />} />
@@ -173,24 +163,29 @@ function AppContent() {
 
 export default function App() {
   return (
-    <HashRouter>
-      {FEATURES.nostrAuth ? (
-        <NostrAuthProvider>
-          {FEATURES.gamification ? (
+    <ErrorBoundary>
+      <ErrorProvider>
+        <HashRouter>
+          {FEATURES.nostrAuth ? (
+            <NostrAuthProvider>
+              {FEATURES.gamification ? (
+                <GamificationProvider>
+                  <AppContent />
+                </GamificationProvider>
+              ) : (
+                <AppContent />
+              )}
+            </NostrAuthProvider>
+          ) : FEATURES.gamification ? (
             <GamificationProvider>
               <AppContent />
             </GamificationProvider>
           ) : (
             <AppContent />
           )}
-        </NostrAuthProvider>
-      ) : FEATURES.gamification ? (
-        <GamificationProvider>
-          <AppContent />
-        </GamificationProvider>
-      ) : (
-        <AppContent />
-      )}
-    </HashRouter>
+        </HashRouter>
+        <ErrorDisplay />
+      </ErrorProvider>
+    </ErrorBoundary>
   );
 }

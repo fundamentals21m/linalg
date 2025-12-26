@@ -73,7 +73,7 @@ export function getTheoremsBySection(sectionId: number): TheoremEntry[] {
 }
 
 export function getCategories(): string[] {
-  return [...new Set(theorems.map((t) => t.category).filter(Boolean))];
+  return [...new Set(theorems.map((t) => t.category).filter((c): c is string => Boolean(c)))];
 }
 
 export function searchTheorems(query: string): TheoremEntry[] {

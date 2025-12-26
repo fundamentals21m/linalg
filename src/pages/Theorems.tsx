@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Header, Sidebar } from '@/components/layout';
 import { COURSE_NAME } from '@/config';
 import { MathBlock } from '@/components/common/MathBlock';
-import { theorems, getCategories, searchTheorems, type TheoremEntry } from '@/data/theorems';
+import { theorems, getCategories, searchTheorems } from '@/data/theorems';
 
 export default function Theorems() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -72,7 +72,7 @@ export default function Theorems() {
 
           {/* Theorems by category */}
           <div className="space-y-8">
-            {displayGroups.map(({ category, items }) => (
+            {groupedTheorems.map(({ category, items }) => (
               <div key={category} className="space-y-3">
                 <h2 className="text-xl font-bold text-dark-200 border-b border-dark-700/50 pb-2 flex items-center gap-3">
                   <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500/20 to-orange-500/10 flex items-center justify-center text-sm font-bold text-amber-400">

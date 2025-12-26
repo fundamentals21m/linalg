@@ -98,7 +98,9 @@ interface ChapterQuizComponentProps {
 }
 
 function ChapterQuizComponent({ chapterId, chapterTitle, questions }: ChapterQuizComponentProps) {
-  const gamification = FEATURES.gamification ? useGamification() : null;
+  // Always call hook unconditionally, then conditionally use the result
+  const gamificationContext = useGamification();
+  const gamification = FEATURES.gamification ? gamificationContext : null;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -307,7 +309,7 @@ function ChapterQuizComponent({ chapterId, chapterTitle, questions }: ChapterQui
 
       {/* Options */}
       <div className="space-y-3 mb-6">
-        {currentQuestion.options.map((option, index) => {
+        {currentQuestion.options?.map((option, index) => {
           const isSelected = selectedAnswer === index;
           const isCorrect = index === currentQuestion.correctIndex;
           const showCorrect = showResult && isCorrect;

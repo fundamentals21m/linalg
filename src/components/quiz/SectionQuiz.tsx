@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FEATURES } from '@/config';
 import { useGamification } from '@/contexts/GamificationContext';
-import { Math, MathBlock } from '@/components/common/MathBlock';
-import type { QuizQuestion, QuestionType, renderContent } from '@magic-internet-math/shared';
+
+import { renderContent } from '@magic-internet-math/shared';
+import type { QuizQuestion, QuestionType } from '@magic-internet-math/shared';
 
 // Re-export types for convenience
 export type { QuizQuestion, QuestionType } from '@magic-internet-math/shared';
@@ -29,8 +30,6 @@ export function SectionQuiz({ sectionId, questions, title = 'Section Quiz' }: Se
   const [isComplete, setIsComplete] = useState(false);
   const [numericError, setNumericError] = useState('');
 
-  const questionType: QuestionType = currentQuestion.type ?? 'multiple-choice';
-
   // Randomize questions on mount, take 5
   const shuffledQuestions = useMemo(() => {
     return [...questions].sort(() => Math.random() - 0.5).slice(0, 5);
@@ -38,6 +37,7 @@ export function SectionQuiz({ sectionId, questions, title = 'Section Quiz' }: Se
 
   const currentQuestion = shuffledQuestions[currentIndex];
   const totalQuestions = shuffledQuestions.length;
+  const questionType: QuestionType = currentQuestion?.type ?? 'multiple-choice';
 
   const handleMultipleChoiceAnswer = (answerIndex: number) => {
     if (selectedAnswer !== null) return;
@@ -59,7 +59,7 @@ export function SectionQuiz({ sectionId, questions, title = 'Section Quiz' }: Se
       return;
     }
 
-    const { min, max, precision } = currentQuestion.numericRange ?? {};
+    const { min, max } = currentQuestion.numericRange ?? {};
     
     // Check range validation
     if (min !== undefined && numericAnswer < min) {
@@ -90,7 +90,7 @@ export function SectionQuiz({ sectionId, questions, title = 'Section Quiz' }: Se
       return;
     }
 
-    const isCorrect = trimmedAnswer.toLowerCase() === currentQuestion.correctAnswer?.toString().toLowerCase();
+    const isCorrect = trimmedAnswer.toLowerCase() === String(currentQuestion.correctAnswer ?? '').toLowerCase();
     
     if (isCorrect) {
       setScore((prev) => prev + 1);
@@ -116,7 +116,7 @@ export function SectionQuiz({ sectionId, questions, title = 'Section Quiz' }: Se
         const finalScore = score + (showResult ? (
           questionType === 'multiple-choice' && selectedAnswer === currentQuestion.correctIndex ? 1 :
           questionType === 'numeric' && numericAnswer === currentQuestion.correctAnswer ? 1 :
-          questionType === 'text' && textAnswer.toLowerCase() === currentQuestion.correctAnswer?.toLowerCase() ? 1 : 0
+          questionType === 'text' && textAnswer.toLowerCase() === String(currentQuestion.correctAnswer ?? '').toLowerCase() ? 1 : 0
         ) : 0);
         const finalPercentage = Math.round((finalScore / totalQuestions) * 100);
         
